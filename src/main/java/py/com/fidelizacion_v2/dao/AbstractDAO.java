@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author jhony
+ * 
  */
 public abstract class AbstractDAO<T> {
 

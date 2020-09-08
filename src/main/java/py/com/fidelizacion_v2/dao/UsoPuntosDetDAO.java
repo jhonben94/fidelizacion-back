@@ -15,7 +15,7 @@ import py.com.fidelizacion_v2.util.Globales;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 public class UsoPuntosDetDAO extends AbstractDAO<UsoPuntosDet >{

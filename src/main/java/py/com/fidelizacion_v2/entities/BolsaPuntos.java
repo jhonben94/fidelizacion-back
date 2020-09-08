@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Entity
 @Table(name = "bolsa_puntos")

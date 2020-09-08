@@ -5,6 +5,7 @@
  */
 package py.com.fidelizacion_v2.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Entity
 @Table(name = "uso_puntos_det")
@@ -47,6 +48,8 @@ public class UsoPuntosDet implements Serializable {
     @ManyToOne(optional = false)
     private BolsaPuntos idBolsa;
     @JoinColumn(name = "id_uso_puntos_cab", referencedColumnName = "id_uso_puntos_cab")
+    
+    @JsonBackReference("usoPuntosCabecera")
     @ManyToOne(optional = false)
     private UsoPuntosCab idUsoPuntosCab;
 

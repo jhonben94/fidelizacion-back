@@ -23,7 +23,7 @@ import py.com.fidelizacion_v2.entities.Clientes;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 @Path("clientes")
@@ -54,20 +54,20 @@ public class ClientesFacadeREST  {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public Clientes find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<Clientes> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<Clientes> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }

@@ -13,7 +13,7 @@ import py.com.fidelizacion_v2.util.Globales;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 public class AsignacionPuntosDAO extends AbstractDAO<AsignacionPuntos>{

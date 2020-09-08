@@ -25,7 +25,7 @@ import py.com.fidelizacion_v2.entities.BolsaPuntos;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 @Path("bolsa-puntos")
@@ -55,20 +55,20 @@ public class BolsaPuntosFacadeREST {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public BolsaPuntos find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<BolsaPuntos> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<BolsaPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }

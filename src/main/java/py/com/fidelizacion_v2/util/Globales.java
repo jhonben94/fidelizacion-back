@@ -7,7 +7,7 @@ package py.com.fidelizacion_v2.util;
 
 /**
  *
- * @author jhony
+ * 
  */
 public class Globales {
     public static final String  unitName = "py.com_fidelizacion_v2_war_1.0-SNAPSHOTPU";

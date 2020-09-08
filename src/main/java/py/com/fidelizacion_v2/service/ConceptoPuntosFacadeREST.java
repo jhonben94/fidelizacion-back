@@ -22,7 +22,7 @@ import py.com.fidelizacion_v2.entities.ConceptoPuntos;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 @Path("concepto-puntos")
@@ -51,20 +51,20 @@ public class ConceptoPuntosFacadeREST  {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public ConceptoPuntos find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<ConceptoPuntos> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<ConceptoPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }

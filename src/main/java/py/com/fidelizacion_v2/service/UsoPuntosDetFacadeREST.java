@@ -22,7 +22,7 @@ import py.com.fidelizacion_v2.entities.UsoPuntosDet;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 @Path("uso-puntos-det")
@@ -32,14 +32,14 @@ public class UsoPuntosDetFacadeREST {
     private UsoPuntosDetDAO dao;
 
     @POST
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({ MediaType.APPLICATION_JSON})
     public void create(UsoPuntosDet entity) {
         dao.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({ MediaType.APPLICATION_JSON})
     public void edit(@PathParam("id") Integer id, UsoPuntosDet entity) {
         dao.edit(entity);
     }
@@ -52,20 +52,20 @@ public class UsoPuntosDetFacadeREST {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
     public UsoPuntosDet find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<UsoPuntosDet> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<UsoPuntosDet> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }

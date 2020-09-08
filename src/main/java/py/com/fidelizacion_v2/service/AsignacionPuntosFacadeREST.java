@@ -22,7 +22,7 @@ import py.com.fidelizacion_v2.entities.AsignacionPuntos;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 @Path("asignacion-puntos")
@@ -52,20 +52,20 @@ public class AsignacionPuntosFacadeREST  {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public AsignacionPuntos find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<AsignacionPuntos> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({ MediaType.APPLICATION_JSON})
     public List<AsignacionPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }

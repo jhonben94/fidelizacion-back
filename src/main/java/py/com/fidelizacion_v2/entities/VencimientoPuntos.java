@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Entity
 @Table(name = "vencimiento_puntos")

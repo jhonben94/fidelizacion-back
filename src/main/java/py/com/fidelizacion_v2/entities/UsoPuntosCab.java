@@ -5,6 +5,7 @@
  */
 package py.com.fidelizacion_v2.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Entity
 @Table(name = "uso_puntos_cab")
@@ -37,6 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "UsoPuntosCab.findAll", query = "SELECT u FROM UsoPuntosCab u")
     , @NamedQuery(name = "UsoPuntosCab.findByIdUsoPuntosCab", query = "SELECT u FROM UsoPuntosCab u WHERE u.idUsoPuntosCab = :idUsoPuntosCab")
+    , @NamedQuery(name = "UsoPuntosCab.Consulta.Uso", 
+            // AND u.fechaUso =:fechaUso AND u.idConcepto.idConcepto =:idConcepto
+            query = "SELECT u FROM UsoPuntosCab u  WHERE u.idCliente.idCliente = :idCliente AND u.fechaUso = :fechaUso AND u.idConcepto.idConcepto = :idConcepto")
     , @NamedQuery(name = "UsoPuntosCab.findByPuntajeUtilizado", query = "SELECT u FROM UsoPuntosCab u WHERE u.puntajeUtilizado = :puntajeUtilizado")
     , @NamedQuery(name = "UsoPuntosCab.findByFechaUso", query = "SELECT u FROM UsoPuntosCab u WHERE u.fechaUso = :fechaUso")})
 public class UsoPuntosCab implements Serializable {
@@ -56,6 +60,8 @@ public class UsoPuntosCab implements Serializable {
     @Column(name = "fecha_uso")
     @Temporal(TemporalType.DATE)
     private Date fechaUso;
+    
+    @JsonBackReference("usoPuntosCabecera")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsoPuntosCab")
     private List<UsoPuntosDet> usoPuntosDetList;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")

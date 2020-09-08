@@ -5,6 +5,7 @@
  */
 package py.com.fidelizacion_v2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Entity
 @Table(name = "clientes")
@@ -93,6 +94,7 @@ public class Clientes implements Serializable {
     @Column(name = "fecha_nacimiento")
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
     private List<UsoPuntosCab> usoPuntosCabList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")

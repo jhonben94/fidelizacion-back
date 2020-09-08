@@ -11,7 +11,7 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author jhony
+ * 
  */
 @ApplicationPath("fidesys")
 public class ApplicationConfig extends Application {
@@ -34,6 +34,7 @@ public class ApplicationConfig extends Application {
         resources.add(py.com.fidelizacion_v2.service.BolsaPuntosFacadeREST.class);
         resources.add(py.com.fidelizacion_v2.service.ClientesFacadeREST.class);
         resources.add(py.com.fidelizacion_v2.service.ConceptoPuntosFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.service.ConsultasFacadeREST.class);
         resources.add(py.com.fidelizacion_v2.service.UsoPuntosCabFacadeREST.class);
         resources.add(py.com.fidelizacion_v2.service.UsoPuntosDetFacadeREST.class);
         resources.add(py.com.fidelizacion_v2.service.VencimientoPuntosFacadeREST.class);

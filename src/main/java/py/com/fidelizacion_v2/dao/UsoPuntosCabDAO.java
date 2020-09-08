@@ -5,16 +5,18 @@
  */
 package py.com.fidelizacion_v2.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import py.com.fidelizacion_v2.entities.ConceptoPuntos;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
+import py.com.fidelizacion_v2.entities.UsoPuntosDet;
+import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
 
 /**
  *
- * @author jhony
+ * 
  */
 @Stateless
 public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
@@ -29,6 +31,14 @@ public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
     protected EntityManager getEntityManager() {
        return this.em;
     }
-    
+     public List<UsoPuntosDet> consultaUso( ConsultaUsoPuntosParam param){
+         System.out.println("val :" +param.getIdCliente());
+         List<UsoPuntosDet> respuesta = (List<UsoPuntosDet>) em.createNamedQuery("UsoPuntosCab.Consulta.Uso")
+                                        .setParameter("idCliente", param.getIdCliente())
+                                        .setParameter("fechaUso", param.getFecha())
+                                        .setParameter("idConcepto", param.getIdConcepto())   
+                                        .getResultList();
+        return respuesta;
+    }
     
 }
