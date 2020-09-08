@@ -6,44 +6,42 @@
 package py.com.fidelizacion_v2.dao;
 
 import java.util.List;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 
 /**
  *
  * @author jhony
  */
-public abstract class AbstractFacade<T> {
+public abstract class AbstractDAO<T> {
 
     private Class<T> entityClass;
 
-    public AbstractFacade(Class<T> entityClass) {
+    public AbstractDAO(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
     protected abstract EntityManager getEntityManager();
-
+    
     public void create(T entity) {
         getEntityManager().persist(entity);
     }
-
+    
     public void edit(T entity) {
         getEntityManager().merge(entity);
     }
-
     public void remove(T entity) {
         getEntityManager().remove(getEntityManager().merge(entity));
     }
-
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
-
     public List<T> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
-
     public List<T> findRange(int[] range) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));

@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "AsignacionPuntos.findByIdAsignacion", query = "SELECT a FROM AsignacionPuntos a WHERE a.idAsignacion = :idAsignacion")
     , @NamedQuery(name = "AsignacionPuntos.findByLimiteInferior", query = "SELECT a FROM AsignacionPuntos a WHERE a.limiteInferior = :limiteInferior")
     , @NamedQuery(name = "AsignacionPuntos.findByMontoEquivalencia", query = "SELECT a FROM AsignacionPuntos a WHERE a.montoEquivalencia = :montoEquivalencia")
-    , @NamedQuery(name = "AsignacionPuntos.findByLimiteSuperior", query = "SELECT a FROM AsignacionPuntos a WHERE a.limiteSuperior = :limiteSuperior")})
+    , @NamedQuery(name = "AsignacionPuntos.findByLimitedaoior", query = "SELECT a FROM AsignacionPuntos a WHERE a.limitedaoior = :limitedaoior")})
 public class AsignacionPuntos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,8 +49,8 @@ public class AsignacionPuntos implements Serializable {
     private int montoEquivalencia;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "limite_superior")
-    private int limiteSuperior;
+    @Column(name = "limite_daoior")
+    private int limitedaoior;
 
     public AsignacionPuntos() {
     }
@@ -59,11 +59,11 @@ public class AsignacionPuntos implements Serializable {
         this.idAsignacion = idAsignacion;
     }
 
-    public AsignacionPuntos(Integer idAsignacion, int limiteInferior, int montoEquivalencia, int limiteSuperior) {
+    public AsignacionPuntos(Integer idAsignacion, int limiteInferior, int montoEquivalencia, int limitedaoior) {
         this.idAsignacion = idAsignacion;
         this.limiteInferior = limiteInferior;
         this.montoEquivalencia = montoEquivalencia;
-        this.limiteSuperior = limiteSuperior;
+        this.limitedaoior = limitedaoior;
     }
 
     public Integer getIdAsignacion() {
@@ -90,12 +90,12 @@ public class AsignacionPuntos implements Serializable {
         this.montoEquivalencia = montoEquivalencia;
     }
 
-    public int getLimiteSuperior() {
-        return limiteSuperior;
+    public int getLimitedaoior() {
+        return limitedaoior;
     }
 
-    public void setLimiteSuperior(int limiteSuperior) {
-        this.limiteSuperior = limiteSuperior;
+    public void setLimitedaoior(int limitedaoior) {
+        this.limitedaoior = limitedaoior;
     }
 
     @Override
