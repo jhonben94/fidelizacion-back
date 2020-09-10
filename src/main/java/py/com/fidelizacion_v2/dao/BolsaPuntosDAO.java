@@ -5,11 +5,14 @@
  */
 package py.com.fidelizacion_v2.dao;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import py.com.fidelizacion_v2.entities.AsignacionPuntos;
+import javax.persistence.Query;
+import javax.persistence.TemporalType;
 import py.com.fidelizacion_v2.entities.BolsaPuntos;
+import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
 
 /**
@@ -29,6 +32,14 @@ public class BolsaPuntosDAO extends AbstractDAO<BolsaPuntos>{
     protected EntityManager getEntityManager() {
        return this.em;
     }
-    
+     public List<BolsaPuntos> consultabolsa(ConsultaBolsaPuntosParam param){
+            Query q=this.em.createQuery("select p from BolsaPuntos p where p.idCliente.idCliente = :idCliente AND p.saldoPuntos BETWEEN :limiteInf AND :limiteSup")
+                    .setParameter("idCliente", param.getIdCliente())
+                    .setParameter("limiteInf", param.getLimiteInferior())
+                    .setParameter("limiteSup", param.getLimiteSuperior());
+
+           List<BolsaPuntos> respuesta = (List<BolsaPuntos>) q.getResultList();
+           return respuesta;
+    }
     
 }

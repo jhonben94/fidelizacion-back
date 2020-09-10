@@ -60,7 +60,6 @@ public class UsoPuntosCab implements Serializable {
     @NotNull
     @Column(name = "fecha_uso")
     @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date fechaUso;
     
     @JsonBackReference("usoPuntosCabecera")

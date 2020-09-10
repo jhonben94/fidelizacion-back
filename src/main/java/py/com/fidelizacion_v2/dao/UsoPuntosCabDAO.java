@@ -5,17 +5,13 @@
  */
 package py.com.fidelizacion_v2.dao;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TemporalType;
+import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
-import py.com.fidelizacion_v2.entities.UsoPuntosDet;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
 
@@ -62,5 +58,6 @@ public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
                                         .getResultList();
         return respuesta;
     }
+   
     
 }

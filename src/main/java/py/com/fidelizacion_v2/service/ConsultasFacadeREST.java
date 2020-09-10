@@ -13,9 +13,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import py.com.fidelizacion_v2.dao.BolsaPuntosDAO;
 import py.com.fidelizacion_v2.dao.UsoPuntosCabDAO;
+import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
 import py.com.fidelizacion_v2.entities.UsoPuntosDet;
+import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 
 /**
@@ -28,13 +31,26 @@ public class ConsultasFacadeREST {
 
     @Inject
     private UsoPuntosCabDAO usoDao;
+    
+    @Inject
+    private BolsaPuntosDAO bolsaDao;
 
     @POST
+    @Path("puntos")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public List<UsoPuntosCab> consulta (ConsultaUsoPuntosParam param) {
         return usoDao.consultaUso(param);
     }
+    
+    @POST
+    @Path("bolsa")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<BolsaPuntos> consulta (ConsultaBolsaPuntosParam param) {
+        return bolsaDao.consultabolsa(param);
+    }
+
 
    
     
