@@ -5,10 +5,15 @@
  */
 package py.com.fidelizacion_v2.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
 import py.com.fidelizacion_v2.entities.UsoPuntosDet;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
@@ -31,12 +36,29 @@ public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
     protected EntityManager getEntityManager() {
        return this.em;
     }
-     public List<UsoPuntosDet> consultaUso( ConsultaUsoPuntosParam param){
-         System.out.println("val :" +param.getIdCliente());
-         List<UsoPuntosDet> respuesta = (List<UsoPuntosDet>) em.createNamedQuery("UsoPuntosCab.Consulta.Uso")
+     public List<UsoPuntosCab> consultaUso( ConsultaUsoPuntosParam param){
+
+         
+//         String query ="SELECT u FROM UsoPuntosCab u ";
+//         Boolean add = false;
+////         if(param.getIdCliente() !=null){
+////             query+= " WHERE u.idCliente.idCliente =" +param.getIdCliente() ;
+////             add = true;
+////         }
+////  
+//          if(param.getFecha() !=null){
+//              
+//            Date date = param.getFecha();  
+//            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
+//             String strDate = dateFormat.format(date);  
+//             System.out.println("val :" +param.getFecha() + " otro val: " +strDate);
+//
+//             query+= !add?" WHERE function('date_format', u.fechaUso, '%Y, %m, %d') = '"+ strDate+"'": "  AND function('date_format', u.fechaUso, '%Y, %m, %d') ='"+ strDate+"'";
+//         }
+
+         List<UsoPuntosCab> respuesta = (List<UsoPuntosCab>) em.createNamedQuery("UsoPuntosCab.Consulta.Uso")
                                         .setParameter("idCliente", param.getIdCliente())
-                                        .setParameter("fechaUso", param.getFecha())
-                                        .setParameter("idConcepto", param.getIdConcepto())   
+                                        .setParameter("fechaUso", param.getFecha(),TemporalType.DATE)
                                         .getResultList();
         return respuesta;
     }

@@ -32,7 +32,7 @@ public class ConsultasFacadeREST {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public List<UsoPuntosDet> consulta (ConsultaUsoPuntosParam param) {
+    public List<UsoPuntosCab> consulta (ConsultaUsoPuntosParam param) {
         return usoDao.consultaUso(param);
     }
 
