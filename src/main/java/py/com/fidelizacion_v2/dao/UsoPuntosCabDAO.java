@@ -54,7 +54,8 @@ public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
 
          List<UsoPuntosCab> respuesta = (List<UsoPuntosCab>) em.createNamedQuery("UsoPuntosCab.Consulta.Uso")
                                         .setParameter("idCliente", param.getIdCliente())
-                                        .setParameter("fechaUso", param.getFecha(),TemporalType.DATE)
+                                        .setParameter("fechaUso",Globales.localToTimeStamp(param.getFecha()))
+                                        .setParameter("idConcepto", param.getIdConcepto())
                                         .getResultList();
         return respuesta;
     }

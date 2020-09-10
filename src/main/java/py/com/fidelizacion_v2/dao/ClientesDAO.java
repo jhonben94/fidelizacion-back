@@ -5,10 +5,16 @@
  */
 package py.com.fidelizacion_v2.dao;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Model;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import py.com.fidelizacion_v2.entities.Clientes;
 import py.com.fidelizacion_v2.util.Globales;
 
@@ -29,6 +35,20 @@ public class ClientesDAO extends AbstractDAO<Clientes>{
     protected EntityManager getEntityManager() {
        return this.em;
     }
+    public List<Clientes> buscarClienteVencimiento(Integer dias){
+
+        Date today = new Date();
+        Date nexDay = new Date(today.getTime() + dias*(1000 * 60 * 60 * 24));
+       
+        Query q=this.em.createQuery("SELECT  c from BolsaPuntos p INNER JOIN p.idCliente c  where p.fechaCaducidad  BETWEEN :limiteInf AND :limiteSup ")
+                .setParameter("limiteInf", Globales.localToTimeStamp(today))
+                .setParameter("limiteSup", Globales.localToTimeStamp(nexDay));
+        
+        List<Clientes> respuesta = q.getResultList();
+                
+        return respuesta;
+    } 
     
+   
     
 }
