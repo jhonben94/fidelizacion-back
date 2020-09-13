@@ -12,6 +12,7 @@ import javax.persistence.Query;
 
 import py.com.fidelizacion_v2.entities.AsignacionPuntos;
 import py.com.fidelizacion_v2.entities.BolsaPuntos;
+import py.com.fidelizacion_v2.model.params.ConsultaAsignacionPuntosParam;
 import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
 
@@ -19,25 +20,24 @@ import java.util.List;
 
 /**
  *
- * 
  */
 @Stateless
-public class AsignacionPuntosDAO extends AbstractDAO<AsignacionPuntos>{
-    
+public class AsignacionPuntosDAO extends AbstractDAO<AsignacionPuntos> {
+
     @PersistenceContext(unitName = Globales.unitName)
     private EntityManager em;
 
     public AsignacionPuntosDAO() {
         super(AsignacionPuntos.class);
     }
+
     @Override
     protected EntityManager getEntityManager() {
-       return this.em;
+        return this.em;
     }
 
-    public Integer consultaasignacion(ConsultaAsignacionPuntosParam param){
-        Query q=this.em.createQuery("select p.montoEquivalencia / :param from AsignacionPuntos p where :param BETWEEN :limiteInf AND :limiteSup")
-                .setParameter("montoEquivalencia", param.getMontoEquivalencia());
+    public Integer consultaasignacion(Integer monto) {
+        Query q = this.em.createQuery("select p.montoEquivalencia / :monto from AsignacionPuntos p where :monto BETWEEN p.limiteInferior AND p.limitesuperior");
 
         return (Integer) q.getSingleResult();
     }
