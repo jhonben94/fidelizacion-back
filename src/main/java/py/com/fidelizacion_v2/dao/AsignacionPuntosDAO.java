@@ -8,8 +8,14 @@ package py.com.fidelizacion_v2.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import py.com.fidelizacion_v2.entities.AsignacionPuntos;
+import py.com.fidelizacion_v2.entities.BolsaPuntos;
+import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
+
+import java.util.List;
 
 /**
  *
@@ -28,6 +34,11 @@ public class AsignacionPuntosDAO extends AbstractDAO<AsignacionPuntos>{
     protected EntityManager getEntityManager() {
        return this.em;
     }
-    
-    
+
+    public Integer consultaasignacion(ConsultaAsignacionPuntosParam param){
+        Query q=this.em.createQuery("select p.montoEquivalencia / :param from AsignacionPuntos p where :param BETWEEN :limiteInf AND :limiteSup")
+                .setParameter("montoEquivalencia", param.getMontoEquivalencia());
+
+        return (Integer) q.getSingleResult();
+    }
 }
