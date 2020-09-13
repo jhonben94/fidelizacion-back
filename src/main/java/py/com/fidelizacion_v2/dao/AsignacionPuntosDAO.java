@@ -11,12 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import py.com.fidelizacion_v2.entities.AsignacionPuntos;
-import py.com.fidelizacion_v2.entities.BolsaPuntos;
-import py.com.fidelizacion_v2.model.params.ConsultaAsignacionPuntosParam;
-import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
-
-import java.util.List;
 
 /**
  *

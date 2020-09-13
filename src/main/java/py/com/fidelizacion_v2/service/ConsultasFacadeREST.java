@@ -22,7 +22,6 @@ import py.com.fidelizacion_v2.dao.UsoPuntosCabDAO;
 import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.entities.Clientes;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
-import py.com.fidelizacion_v2.model.params.ConsultaAsignacionPuntosParam;
 import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 
