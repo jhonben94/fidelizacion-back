@@ -17,6 +17,7 @@ import java.util.Date;
  */
 public class Globales {
     public static final String  unitName = "py.com_fidelizacion_v2_war_1.0-SNAPSHOTPU";
+    public static final Integer intervalo = 3600000;
     /**
      * 
      * @param d Date 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
 import java.util.Set;
 import javax.ws.rs.ApplicationPath;
@@ -30,14 +30,14 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(py.com.fidelizacion_v2.service.AsignacionPuntosFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.BolsaPuntosFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.ClientesFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.ConceptoPuntosFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.ConsultasFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.UsoPuntosCabFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.UsoPuntosDetFacadeREST.class);
-        resources.add(py.com.fidelizacion_v2.service.VencimientoPuntosFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.AsignacionPuntosFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.BolsaPuntosFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.ClientesFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.ConceptoPuntosFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.ConsultasFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.UsoPuntosCabFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.UsoPuntosDetFacadeREST.class);
+        resources.add(py.com.fidelizacion_v2.web.VencimientoPuntosFacadeREST.class);
     }
     
 }

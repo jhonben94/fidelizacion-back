@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
 import java.util.List;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -18,31 +17,30 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import py.com.fidelizacion_v2.dao.ClientesDAO;
-import py.com.fidelizacion_v2.entities.Clientes;
+import py.com.fidelizacion_v2.dao.UsoPuntosDetDAO;
+import py.com.fidelizacion_v2.entities.UsoPuntosDet;
 
 /**
  *
  * 
  */
 @Stateless
-@Path("clientes")
-public class ClientesFacadeREST  {
-    
+@Path("uso-puntos-det")
+public class UsoPuntosDetFacadeREST {
+
     @Inject
-    private ClientesDAO dao;
+    private UsoPuntosDetDAO dao;
 
     @POST
-  
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Clientes entity) {
+    @Consumes({ MediaType.APPLICATION_JSON})
+    public void create(UsoPuntosDet entity) {
         dao.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, Clientes entity) {
+    @Consumes({ MediaType.APPLICATION_JSON})
+    public void edit(@PathParam("id") Integer id, UsoPuntosDet entity) {
         dao.edit(entity);
     }
 
@@ -54,21 +52,21 @@ public class ClientesFacadeREST  {
 
     @GET
     @Path("{id}")
-    @Produces({ MediaType.APPLICATION_JSON})
-    public Clientes find(@PathParam("id") Integer id) {
+    @Produces({MediaType.APPLICATION_JSON})
+    public UsoPuntosDet find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<Clientes> findAll() {
+    public List<UsoPuntosDet> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<Clientes> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<UsoPuntosDet> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }
 

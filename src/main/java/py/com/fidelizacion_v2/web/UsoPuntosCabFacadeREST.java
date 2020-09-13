@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

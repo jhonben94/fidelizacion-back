@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
+import py.com.fidelizacion_v2.dao.AbstractDAO;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,30 +20,30 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import py.com.fidelizacion_v2.dao.AsignacionPuntosDAO;
-import py.com.fidelizacion_v2.entities.AsignacionPuntos;
+import py.com.fidelizacion_v2.dao.VencimientoPuntosDAO;
+import py.com.fidelizacion_v2.entities.VencimientoPuntos;
 
 /**
  *
  * 
  */
 @Stateless
-@Path("asignacion-puntos")
-public class AsignacionPuntosFacadeREST  {
+@Path("vencimiento-puntos")
+public class VencimientoPuntosFacadeREST {
 
     @Inject
-    private AsignacionPuntosDAO dao;
+    private VencimientoPuntosDAO dao;
 
-    @POST 
+    @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(AsignacionPuntos entity) {
+    public void create(VencimientoPuntos entity) {
         dao.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, AsignacionPuntos entity) {
+    public void edit(@PathParam("id") Integer id, VencimientoPuntos entity) {
         dao.edit(entity);
     }
 
@@ -53,20 +56,20 @@ public class AsignacionPuntosFacadeREST  {
     @GET
     @Path("{id}")
     @Produces({ MediaType.APPLICATION_JSON})
-    public AsignacionPuntos find(@PathParam("id") Integer id) {
+    public VencimientoPuntos find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<AsignacionPuntos> findAll() {
+    public List<VencimientoPuntos> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<AsignacionPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<VencimientoPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }
 
@@ -76,6 +79,5 @@ public class AsignacionPuntosFacadeREST  {
     public String countREST() {
         return String.valueOf(dao.count());
     }
-
     
 }

@@ -5,6 +5,7 @@
  */
 package py.com.fidelizacion_v2.dao;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -33,10 +34,18 @@ public class BolsaPuntosDAO extends AbstractDAO<BolsaPuntos>{
        return this.em;
     }
      public List<BolsaPuntos> consultabolsa(ConsultaBolsaPuntosParam param){
-            Query q=this.em.createQuery("select p from BolsaPuntos p where p.idCliente.idCliente = :idCliente AND p.saldoPuntos BETWEEN :limiteInf AND :limiteSup")
+           Query q=this.em.createQuery("select p from BolsaPuntos p where p.idCliente.idCliente = :idCliente AND p.saldoPuntos BETWEEN :limiteInf AND :limiteSup")
                     .setParameter("idCliente", param.getIdCliente())
                     .setParameter("limiteInf", param.getLimiteInferior())
                     .setParameter("limiteSup", param.getLimiteSuperior());
+
+           List<BolsaPuntos> respuesta = (List<BolsaPuntos>) q.getResultList();
+           return respuesta;
+    }
+     
+     public List<BolsaPuntos> consultaBolsaVencida(){
+           Query q=this.em.createQuery("select p from BolsaPuntos p where p.fechaCaducidad < :hoy")
+                    .setParameter("hoy", Globales.localToTimeStamp(new Date()));
 
            List<BolsaPuntos> respuesta = (List<BolsaPuntos>) q.getResultList();
            return respuesta;

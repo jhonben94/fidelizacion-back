@@ -29,5 +29,4 @@ public class AsignacionPuntosDAO extends AbstractDAO<AsignacionPuntos>{
        return this.em;
     }
     
-    
 }

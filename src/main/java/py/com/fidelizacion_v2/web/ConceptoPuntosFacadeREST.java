@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
 import java.util.List;
 import javax.ejb.Stateless;
@@ -17,30 +17,29 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import py.com.fidelizacion_v2.dao.UsoPuntosDetDAO;
-import py.com.fidelizacion_v2.entities.UsoPuntosDet;
+import py.com.fidelizacion_v2.dao.ConceptoPuntosDAO;
+import py.com.fidelizacion_v2.entities.ConceptoPuntos;
 
 /**
  *
  * 
  */
 @Stateless
-@Path("uso-puntos-det")
-public class UsoPuntosDetFacadeREST {
-
+@Path("concepto-puntos")
+public class ConceptoPuntosFacadeREST  {
     @Inject
-    private UsoPuntosDetDAO dao;
+    private ConceptoPuntosDAO dao;
 
     @POST
-    @Consumes({ MediaType.APPLICATION_JSON})
-    public void create(UsoPuntosDet entity) {
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void create(ConceptoPuntos entity) {
         dao.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({ MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, UsoPuntosDet entity) {
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void edit(@PathParam("id") Integer id, ConceptoPuntos entity) {
         dao.edit(entity);
     }
 
@@ -52,21 +51,21 @@ public class UsoPuntosDetFacadeREST {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public UsoPuntosDet find(@PathParam("id") Integer id) {
+    @Produces({ MediaType.APPLICATION_JSON})
+    public ConceptoPuntos find(@PathParam("id") Integer id) {
         return dao.find(id);
     }
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<UsoPuntosDet> findAll() {
+    public List<ConceptoPuntos> findAll() {
         return dao.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({ MediaType.APPLICATION_JSON})
-    public List<UsoPuntosDet> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<ConceptoPuntos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return dao.findRange(new int[]{from, to});
     }
 

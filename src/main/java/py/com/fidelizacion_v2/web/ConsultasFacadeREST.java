@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package py.com.fidelizacion_v2.service;
+package py.com.fidelizacion_v2.web;
 
 import java.util.List;
 import javax.ejb.Stateless;
@@ -44,6 +44,21 @@ public class ConsultasFacadeREST {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public List<UsoPuntosCab> consulta (ConsultaUsoPuntosParam param) {
+        return usoDao.consultaUso(param);
+    }
+    
+    @POST
+    @Path("cargar-puntos")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<UsoPuntosCab> cargarPuntos (ConsultaUsoPuntosParam param) {
+        return usoDao.consultaUso(param);
+    }
+    @POST
+    @Path("utilizar-puntos")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<UsoPuntosCab> utilizarPuntos (ConsultaUsoPuntosParam param) {
         return usoDao.consultaUso(param);
     }
     
