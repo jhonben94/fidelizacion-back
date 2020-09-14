@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "UsoPuntosDet.findAll", query = "SELECT u FROM UsoPuntosDet u")
     , @NamedQuery(name = "UsoPuntosDet.findByIdUsoPuntosDet", query = "SELECT u FROM UsoPuntosDet u WHERE u.idUsoPuntosDet = :idUsoPuntosDet")
+    , @NamedQuery(name = "UsoPuntosDet.DetalleUso", query = "SELECT u FROM UsoPuntosDet u JOIN u.idUsoPuntosCab ud WHERE u.idUsoPuntosCab.idUsoPuntosCab = :idCab")
     , @NamedQuery(name = "UsoPuntosDet.findByPuntajeUtilizado", query = "SELECT u FROM UsoPuntosDet u WHERE u.puntajeUtilizado = :puntajeUtilizado")})
 public class UsoPuntosDet implements Serializable {
 

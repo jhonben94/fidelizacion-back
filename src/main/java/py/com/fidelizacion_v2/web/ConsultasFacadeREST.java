@@ -42,7 +42,8 @@ public class ConsultasFacadeREST {
     @Inject
     private AsignacionPuntosDAO asignacionPuntosDao;
     
-    @Inject ClientesDAO clienteDao;
+    @Inject 
+    private ClientesDAO clienteDao;
 
     @POST
     @Path("puntos")
@@ -91,6 +92,14 @@ public class ConsultasFacadeREST {
     public List<Clientes> consultaVencimiento ( @PathParam("day") Integer dias) {
                   System.out.println("dias :"+dias);
                 return clienteDao.buscarClienteVencimiento(dias);
+    }
+    
+    @POST
+    @Path("nacionalidad")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Clientes> consulta (Clientes param) {
+        return clienteDao.buscaClienteNacionalidad(param);
     }
     
 }

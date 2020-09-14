@@ -63,6 +63,16 @@ public class ClientesDAO extends AbstractDAO<Clientes>{
         return respuesta;
     } 
     
+       
+          public List<Clientes> buscaClienteNacionalidad(Clientes c){
+   
+        Query q = this.em.createQuery("SELECT  c from Clientes c where c. like :nacionalidad")
+                .setParameter("nacionalidad", "%"+c.getNacionalidad()+"%");
+
+        List<Clientes> respuesta = q.getResultList();
+                
+        return respuesta;
+    } 
    
     
 }

@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TemporalType;
 import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
+import py.com.fidelizacion_v2.entities.UsoPuntosDet;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 import py.com.fidelizacion_v2.util.Globales;
 
@@ -47,6 +48,13 @@ public class UsoPuntosCabDAO extends AbstractDAO<UsoPuntosCab >{
                                         .getSingleResult();
         return respuesta;
     }
+     public List<UsoPuntosDet> detalleUsoConcepto(ConsultaUsoPuntosParam param){
+         
+           List<UsoPuntosDet> respuesta = (List<UsoPuntosDet>) em.createNamedQuery("UsoPuntosDet.DetalleUso")
+                                        .setParameter("idCliente", param.getIdCliente())
+                                        .getResultList();
+        return respuesta;
+     }
    
     
 }
