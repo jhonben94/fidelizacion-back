@@ -15,6 +15,15 @@ public class ConsultaUsoPuntosParam {
     public Integer idCliente;
     public Integer idConcepto;
     public Date fecha;
+    public Integer monto;
+
+    public Integer getMonto() {
+        return monto;
+    }
+
+    public void setMonto(Integer monto) {
+        this.monto = monto;
+    }
 
     public Integer getIdCliente() {
         return idCliente;

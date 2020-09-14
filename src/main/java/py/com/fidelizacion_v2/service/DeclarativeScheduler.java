@@ -20,10 +20,12 @@ import py.com.fidelizacion_v2.entities.BolsaPuntos;
 public class DeclarativeScheduler {
     @Inject
     private BolsaPuntosDAO bDao;
-     @Schedule(second = "*/5", minute = "*", hour = "*", persistent = false)
+    
+    
+    @Schedule(second = "*",minute = "*",hour = "12",persistent = false)
     public void atSchedule() throws InterruptedException {
         bDao.consultaBolsaVencida();
-        System.out.println("DeclarativeScheduler:: In atSchedule()");
+        System.out.println("Ejecutado proceso diario de actualizacion de bolsas");
     }
     
 }

@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "BolsaPuntos.findAll", query = "SELECT b FROM BolsaPuntos b")
     , @NamedQuery(name = "BolsaPuntos.findByIdBolsa", query = "SELECT b FROM BolsaPuntos b WHERE b.idBolsa = :idBolsa")
+    , @NamedQuery(name = "BolsaPuntos.findByIdCliente", query = "SELECT b FROM BolsaPuntos b WHERE b.idCliente.idCliente = :idCliente")
     , @NamedQuery(name = "BolsaPuntos.findByFechaAsignacion", query = "SELECT b FROM BolsaPuntos b WHERE b.fechaAsignacion = :fechaAsignacion")
     , @NamedQuery(name = "BolsaPuntos.findByFechaCaducidad", query = "SELECT b FROM BolsaPuntos b WHERE b.fechaCaducidad = :fechaCaducidad")
     , @NamedQuery(name = "BolsaPuntos.findByPuntajeAsignado", query = "SELECT b FROM BolsaPuntos b WHERE b.puntajeAsignado = :puntajeAsignado")
