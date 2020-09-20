@@ -106,7 +106,7 @@ public class ConsultasFacadeREST {
     @Path("buscar-cliente")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Clientes> consulta (Clientes param) {
+    public List<Clientes> consultaCliente (Clientes param) {
         return clienteDao.buscaCliente(param);
     }
     
