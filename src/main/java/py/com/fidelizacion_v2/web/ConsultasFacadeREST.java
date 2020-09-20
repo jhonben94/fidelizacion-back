@@ -101,5 +101,13 @@ public class ConsultasFacadeREST {
     public List<Clientes> consulta (Clientes param) {
         return clienteDao.buscaClienteNacionalidad(param);
     }
+
+    @POST
+    @Path("buscar-cliente")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Clientes> consulta (Clientes param) {
+        return clienteDao.buscaCliente(param);
+    }
     
 }
