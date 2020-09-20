@@ -92,9 +92,7 @@ public class BolsaPuntosDAO extends AbstractDAO<BolsaPuntos>{
                     
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        }
-         
-         
+        }  
     }
     public void crearNuevaBolsa(Integer clienteId,Integer monto){
             Clientes c = clieDao.find(clienteId);

@@ -20,8 +20,7 @@ import py.com.fidelizacion_v2.entities.BolsaPuntos;
 public class DeclarativeScheduler {
     @Inject
     private BolsaPuntosDAO bDao;
-    
-    
+
     @Schedule(second = "*",minute = "*",hour = "12",persistent = false)
     public void atSchedule() throws InterruptedException {
         bDao.consultaBolsaVencida();
