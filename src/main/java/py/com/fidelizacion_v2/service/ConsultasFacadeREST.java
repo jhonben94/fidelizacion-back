@@ -61,7 +61,7 @@ public class ConsultasFacadeREST {
     }
 
     @POST
-    @Path("asginacion-puntos/{monto}")
+    @Path("asignacion-puntos/{monto}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Integer consultaasignacion (@PathParam("monto") Integer monto) {

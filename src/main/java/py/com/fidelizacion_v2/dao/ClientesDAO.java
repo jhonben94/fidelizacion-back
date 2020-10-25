@@ -53,9 +53,10 @@ public class ClientesDAO extends AbstractDAO<Clientes>{
 
    
         Query q;
-        q = this.em.createQuery("SELECT  c from Clientes c where c.nombre like :nombre OR c.apellido like :apellido OR c.fechaNacimiento = :cumple")
+        q = this.em.createQuery("SELECT  c from Clientes c where c.nombre like :nombre OR c.apellido like :apellido OR c.documento like :documento OR c.fechaNacimiento = :cumple")
                 .setParameter("nombre", "%"+c.getNombre()+"%")
                 .setParameter("apellido", "%"+c.getApellido()+"%" )
+                .setParameter("documento", "%"+c.getDocumento()+"%" )
                 .setParameter("cumple", Globales.localToTimeStamp(c.getFechaNacimiento()));
         
         List<Clientes> respuesta = q.getResultList();
