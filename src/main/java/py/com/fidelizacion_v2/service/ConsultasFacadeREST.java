@@ -23,6 +23,7 @@ import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.entities.Clientes;
 import py.com.fidelizacion_v2.entities.UsoPuntosCab;
 import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
+import py.com.fidelizacion_v2.model.params.ConsultaBolsaSaldoParam;
 import py.com.fidelizacion_v2.model.params.ConsultaUsoPuntosParam;
 
 /**
@@ -58,6 +59,14 @@ public class ConsultasFacadeREST {
     @Produces({MediaType.APPLICATION_JSON})
     public List<BolsaPuntos> consultaBolsa (ConsultaBolsaPuntosParam param) {
         return bolsaDao.consultabolsa(param);
+    }
+
+    @POST
+    @Path("saldo")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<BolsaPuntos> consultaSaldo (ConsultaBolsaSaldoParam param) {
+        return bolsaDao.consultasaldo(param);
     }
 
     @POST

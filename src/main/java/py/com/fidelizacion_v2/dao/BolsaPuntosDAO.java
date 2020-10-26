@@ -13,6 +13,7 @@ import javax.persistence.Query;
 import javax.persistence.TemporalType;
 import py.com.fidelizacion_v2.entities.BolsaPuntos;
 import py.com.fidelizacion_v2.model.params.ConsultaBolsaPuntosParam;
+import py.com.fidelizacion_v2.model.params.ConsultaBolsaSaldoParam;
 import py.com.fidelizacion_v2.util.Globales;
 
 /**
@@ -40,6 +41,14 @@ public class BolsaPuntosDAO extends AbstractDAO<BolsaPuntos>{
 
            List<BolsaPuntos> respuesta = (List<BolsaPuntos>) q.getResultList();
            return respuesta;
+    }
+
+    public List<BolsaPuntos> consultasaldo(ConsultaBolsaSaldoParam param){
+        Query q=this.em.createQuery("select p.saldoPuntos from BolsaPuntos p where p.idCliente.idCliente = :idCliente")
+                .setParameter("idCliente", param.getIdCliente());
+
+        List<BolsaPuntos> respuesta = (List<BolsaPuntos>) q.getResultList();
+        return respuesta;
     }
     
 }
